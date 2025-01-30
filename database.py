@@ -19,6 +19,14 @@ def add_user(chat_id):
     conn.commit()
     conn.close()
 
+def get_all_users():
+    conn = sqlite3.connect('users.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT chat_id FROM users')
+    users = [row[0] for row in cursor.fetchall()]
+    conn.close()
+    return users
+
 def is_user_in_whitelist(chat_id):
     conn = sqlite3.connect('users.db')
     cursor = conn.cursor()

@@ -8,10 +8,8 @@ from database import init_db, is_user_in_whitelist
 
 app = Flask(__name__)
 
-# Токены
-# SANDBOX_TOKEN = 'e4oEaZY1Kom5OXzybETkMlwjOCy3i8GSCGTHzWrhd4dc563b'
 
-# Пример функции для получения токена (замените на вашу реализацию)
+# Функции для получения токена
 def get_token():
     # Укажите правильный путь к файлу с токеном
     file_path = r'D:\IT Python Project`s\flaskProject\tg_bot\backend_api_token.txt'
@@ -58,7 +56,7 @@ def check_imei():
     # Проверка IMEI
     response = requests.post(url, headers=headers, data=body)
 
-    # Отладочная информация
+    # Логируем информацию об ответе
     print(f"Response status code: {response.status_code}")
     print(f"Response text: {response.text}")
 
